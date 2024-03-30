@@ -1,26 +1,10 @@
 import React from 'react'
 import {ScrollView, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {Button, Gap, PageHeader, TextInput} from '../../components';
-import {LastTransaction} from '../../components/molecules/LastTransaction';
+import {Button, Gap, PageHeader, TextInput, LastTransaction} from '../../components';
+import {useNavigation} from '@react-navigation/native';
 
-const CashOnHand = ({navigation}) => {
-    const LastTransaction = [
-        {
-            date: '17 April 2020',
-            description: 'Water, Food',
-            amount: '-Rp. 300.000',
-        },
-        {
-            date: '18 April 2020',
-            description: 'Office supplies',
-            amount: '-Rp. 300.000',
-        },
-        {
-            date: '19 April 2020',
-            description: 'Top Up',
-            amount: '+Rp. 300.000',
-        },
-    ];
+const CashOnHand = () => {
+    const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
       <PageHeader
@@ -41,9 +25,14 @@ const CashOnHand = ({navigation}) => {
         <Gap height={24} />
         <Button
           label="Save"
-          onPress={() => navigation.navigate('SignIn')}
         />
-        <LastTransaction transactions={LastTransaction} />
+      </View>
+      <View style={styles.contentWrapper}>
+        <Gap height={24} />
+        <Text>Last 3 Transactions</Text>
+        <LastTransaction date="17 April 2020" text="Water, Food" price="-Rp.300.000"/>
+        <LastTransaction date="18 April 2020" text="Office supplies" price="-Rp.300.000"/>
+        <LastTransaction date="19 April 2020" text="Top Up" price="+Rp.300.000"/>
       </View>
     </ScrollView>
   );

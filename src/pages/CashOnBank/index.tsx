@@ -1,8 +1,10 @@
 import React from 'react'
 import {ScrollView, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {Button, Gap, PageHeader, TextInput} from '../../components';
+import {Button, Gap, PageHeader, TextInput, LastTransaction} from '../../components';
+import {useNavigation} from '@react-navigation/native';
 
-const CashOnBank = ({navigation}) => {
+const CashOnBank = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
       <PageHeader
@@ -23,8 +25,14 @@ const CashOnBank = ({navigation}) => {
         <Gap height={24} />
         <Button
           label="Save"
-          onPress={() => navigation.navigate('SignIn')}
         />
+      </View>
+      <View style={styles.contentWrapper}>
+        <Gap height={24} />
+        <Text>Last 3 Transactions</Text>
+        <LastTransaction date="17 April 2020" text="Water, Food" price="-Rp.300.000"/>
+        <LastTransaction date="18 April 2020" text="Office supplies" price="-Rp.300.000"/>
+        <LastTransaction date="19 April 2020" text="Top Up" price="+Rp.300.000"/>
       </View>
     </ScrollView>
   );
