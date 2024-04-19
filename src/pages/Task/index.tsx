@@ -1,26 +1,32 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
-import { Button, Gap, PageHeader, TextInput } from '../../components'; 
+import { Button, Gap, PageHeader, PageFooter, TextInput } from '../../components'; 
+import {useNavigation} from '@react-navigation/native';
 
-const HomePage = ({navigation, label}) => {
+const TaskPage = () => {
+    const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
-        <PageHeader type="withPhoto" />
+        {/* <PageHeader type="withPhoto" /> */}
+        {/* <Gap height={24} /> */}
         <View style={styles.contentWrapper}>
             <Gap height={26} />
             <View>
+                <Text style={styles.title}>Task</Text>
                 <Gap height={26} />
-                <Text style={styles.title1}>Today</Text>
-                <Text style={styles.title2}>7 Task</Text>
-                
+                <TextInput label="Task Name" placeholder="Fitness"/>
+                <Gap height={16} />
+                <TextInput label="Task Description" placeholder="Exercise and Gym"/>
             </View>
             <Gap height={24} />
         </View>
-        
+        <Gap height={24} />
         <View style={styles.contentWrapper}>
-            <Button label="Add New" backgroundColor="#FFCB62" textColor="#001D35" onPress={() => navigation.navigate('TaskPage')}/>
             <Gap height={26} />
-            <Text style={styles.title1}>My Task</Text>
+            <Text style={styles.containerText4}>Add Transaction</Text>
+            <Button label="Cash On Hand" backgroundColor="#02CF8E" textColor="#000000" onPress={() => navigation.navigate('CashOnHand')}/>
+            <Gap height={18} />
+            <Button label="Cash On Bank" backgroundColor="#02CF8E" textColor="#000000" onPress={() => navigation.navigate('CashOnBank')}/>
         </View>
         <Gap height={26} />
         
@@ -37,19 +43,12 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 24,
     },
-    title1: {
-        fontFamily: 'Poppins-Regular',
-        fontSize: 24,
+    title: {
+        fontFamily: 'Poppins-Medium',
+        fontSize: 22,
         color: '#020202',
-        marginLeft: 2,
-    },
-    title2: {
-        fontFamily: 'Poppins-Light',
-        fontSize: 14,
-        color: 'grey',
-        marginLeft: 2,
-        marginBottom: -10,
-    },
+        textAlign: 'center',
+      },
     containerText: {
         color: '#000000',
         fontFamily: 'Poppins-Light'
@@ -77,4 +76,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomePage
+export default TaskPage
