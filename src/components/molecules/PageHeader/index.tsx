@@ -6,18 +6,18 @@ const PageHeader = ({label, backButton, onPress, type}) => {
   if (type === 'withPhoto') {
     return (
       <View style={styles.containerTop}>
+        <Text style={styles.title}>To Do List</Text>
         <View style={styles.containerwithPhoto}>
-          <Text style={styles.title1}>Money Tracker</Text>
-          <Text style={styles.title2}>Track your money</Text>
         </View>
         <Image
           style={styles.profilePic}
-          source={require('../../../assets/icon/profile.jpg')}
+          source={require('../../../assets/icon/ProfileLogo.png')}
         />
+        <Image style={styles.clockLogo} source={require('../../../assets/icon/ClockLogo.png')}/>
       </View>
     );
   }
-  if (label === 'Sign In') {
+  if (label === 'HomePage') {
     return (
       <View style={styles.container}>
         <Text style={styles.label}>{label}</Text>
@@ -61,18 +61,12 @@ const styles = StyleSheet.create({
     color: '#020202',
     marginLeft: 26,
   },
-  title1: {
+  title: {
     fontFamily: 'Poppins-Medium',
-    fontSize: 22,
-    color: '#020202',
-    marginLeft: 26,
-  },
-  title2: {
-    fontFamily: 'Poppins-Light',
-    fontSize: 14,
-    color: 'grey',
-    marginLeft: 26,
-    marginBottom: -10,
+    fontSize: 28,
+    color: '#001D35',
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   text: {
     color: '#020202',
@@ -80,11 +74,17 @@ const styles = StyleSheet.create({
   profilePic: {
     width: 60,
     height: 60,
-    marginLeft: 'auto',
-    marginRight: 30,
+    marginLeft: 30,
+    marginRight: 'auto',
     borderWidth: 10,
     borderRadius: 10,
     // borderColor: 'black',
+  },
+  clockLogo : { 
+    marginRight: 30,
+    borderWidth: 10,
+    borderRadius: 10,
+    marginLeft: 26,
   },
   containerTop: {
     backgroundColor: '#FFFFFF',

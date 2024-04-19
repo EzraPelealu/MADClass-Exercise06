@@ -1,6 +1,6 @@
-import Logo from './logo.svg';
+import Logo from './LogoApp.svg';
 import BackButton from './BackButton.svg';
-import Profile from './profile.jpg';
-import Subtract from './Subtract.svg';
+import ProfileLogo from './ProfileLogo.png'
+import Clock from './ClockLogo.png'
 
-export {Logo, BackButton, Profile, Subtract};
+export {Logo, ProfileLogo, BackButton, Clock};
